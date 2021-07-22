@@ -7,7 +7,7 @@ if (process.argv.find(arg => arg.match(/ProcessContainer/))) {
 }
 
 const apos = require('apostrophe')({
-  shortName: 'test-apos',
+  shortName: 'a2-onboarding-examples',
 
   // See lib/modules for basic project-level configuration of our modules
   // responsible for serving static assets, managing page templates and
