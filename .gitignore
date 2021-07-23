@@ -16,3 +16,6 @@
 /.jshintrc
 /public/js/_site-compiled.js
 .env
+# Ignore webpack output, we commit the originals in /src
+/lib/modules/apostrophe-assets/public/js/site.js
+/lib/modules/apostrophe-assets/public/css/site.css
