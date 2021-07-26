@@ -32,6 +32,11 @@ const apos = require('apostrophe')({
       enableAltField: true
     },
 
+    'apostrophe-workflow': {
+      alias: 'workflow',
+      replicateAcrossLocales: false
+    },
+
     articles: {},
     'articles-pages': {},
     'articles-widgets': {}
