@@ -34,6 +34,7 @@ const apos = require('apostrophe')({
 
     articles: {},
     'articles-pages': {},
-    'articles-widgets': {}
+    'articles-widgets': {},
+    categories: {}
   }
 });
