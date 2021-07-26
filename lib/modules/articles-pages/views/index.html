@@ -3,10 +3,28 @@
 {% block title %}{{ data.page.title }}{% endblock %}
 
 {% block main %}
-<div class="articles-list">
+<div class="main-content">
   <h1>{{ data.page.title }}</h1>
+  <div class="tag-filters">
+    <h3>Tags</h3>
+    <ul>
+      {% for tag in data.piecesFilters.tags %}
+        {% set isActive = data.query.tags === tag.value %}
+        {% set tagValue = '' if isActive else tag.value %}
 
-  <ul>
+        <li
+          {% if isActive %}
+            class="active"
+          {% endif %}
+        >
+          <a href="{{ data.url | build({ tags: tagValue  }) }}">
+            {{ tag.label }} ({{ tag.count }})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <ul class="articles-list">
     {% for piece in data.pieces %}
       {% set image = apos.images.first(piece.image) %}
       <li>

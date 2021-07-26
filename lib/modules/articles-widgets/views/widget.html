@@ -2,8 +2,6 @@
   <ul>
     {% for piece in data.widget._pieces %}
 
-  {{ apos.log('apos => ', apos) }}
-
       {% set image = apos.images.first(piece.image) %}
       <li>
         <a href="{{ piece._url }}">
