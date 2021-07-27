@@ -4,8 +4,8 @@
   "description": "Onboarding examples for developers",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "webpack serve & npm start",
+    "start": "node .",
+    "dev": "webpack serve & nodemon .",
     "build": "NODE_ENV=production webpack && NODE_ENV=production APOS_MINIFY=1 node app apostrophe:generation",
     "serve": "NODE_ENV=production APOS_MINIFY=1 node app.js"
   },
@@ -22,6 +22,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.1.0",
+    "sanitize-html": "^2.4.0",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "webpack": "^5.45.1",
@@ -41,5 +42,8 @@
       "data"
     ],
     "ext": "json, js, html, less"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
