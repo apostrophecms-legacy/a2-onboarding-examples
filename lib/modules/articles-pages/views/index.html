@@ -5,42 +5,62 @@
 {% block main %}
 <div class="main-content">
   <h1>{{ data.page.title }}</h1>
-  <div class="tag-filters">
-    <h3>Tags</h3>
-    <ul>
-      {% for tag in data.piecesFilters.tags %}
-        {% set isActive = data.query.tags === tag.value %}
-        {% set tagValue = '' if isActive else tag.value %}
+  <div class="articles-content">
+    <div class="tag-filters">
+      <h3>Tags</h3>
+      <ul>
+        {% for tag in data.piecesFilters.tags %}
+          {% set isActive = apos.utils.contains(data.query.tags, tag.value) %}
+          {% set buildOptions = { tags: { $pull: tag.value }  }
+             if isActive
+             else { tags: { $addToSet: tag.value }  } %}
+
+          <li
+            {% if isActive %}
+              class="active"
+            {% endif %}
+          >
+            <a href="{{ data.url | build(buildOptions) }}">
+              {{ tag.label }} ({{ tag.count }})
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      {# <h3>Categories</h3>
+      <ul>
+      {% for category in data.piecesFilters.categories %}
+        {% set isActive = data.query.categories === category.value %}
+        {% set categoryValue = '' if isActive else category.value %}
 
         <li
           {% if isActive %}
             class="active"
           {% endif %}
         >
-          <a href="{{ data.url | build({ tags: tagValue  }) }}">
-            {{ tag.label }} ({{ tag.count }})
+          <a href="{{ data.url | build({ categories: categoryValue  }) }}">
+            {{ category.label }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul> #}
+    </div>
+    <ul class="articles-list">
+      {% for piece in data.pieces %}
+        {% set image = apos.images.first(piece.image) %}
+        <li>
+          <a href="{{ piece._url }}">
+            <h2>{{ piece.title }}</h2>
+
+            {% if image %}
+              <img src="{{ apos.attachments.url(image) }}" />
+            {% endif %}
+
+            {{ apos.singleton(piece, 'content', 'apostrophe-rich-text') }}
           </a>
         </li>
       {% endfor %}
     </ul>
   </div>
-  <ul class="articles-list">
-    {% for piece in data.pieces %}
-      {% set image = apos.images.first(piece.image) %}
-      <li>
-        <a href="{{ piece._url }}">
-          <h2>{{ piece.title }}</h2>
-
-          {% if image %}
-            <img src="{{ apos.attachments.url(image) }}" />
-          {% endif %}
-
-          {{ apos.singleton(piece, 'content', 'apostrophe-rich-text') }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-
 </div>
 
 

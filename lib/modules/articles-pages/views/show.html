@@ -6,11 +6,14 @@
 {% block main %}
   <div class="main-content article">
     <h1>{{ data.piece.title }}</h1>
-    <h2>{{ apos.modules['articles-pages'].toSentence(data.piece.slug) }}</h2>
 
     {% if image %}
       <img src="{{ apos.attachments.url(image) }}" />
     {% endif %}
+
+    <p class="words-counter">
+      {{ data.piece.content.items | countWords }} words to read
+    </p>
 
     {{ apos.singleton(data.piece, 'content', 'apostrophe-rich-text') }}
   </div>
