@@ -34,7 +34,41 @@ const apos = require('apostrophe')({
 
     'apostrophe-workflow': {
       alias: 'workflow',
-      replicateAcrossLocales: false
+      replicateAcrossLocales: false,
+      locales: [
+        {
+          name: 'default',
+          label: 'Default',
+          private: true,
+          children: [
+            {
+              name: 'en-gb',
+              label: 'England'
+            },
+            {
+              name: 'en-us',
+              label: 'United States'
+            },
+            {
+              name: 'fr-fr',
+              label: 'France'
+            }
+          ]
+        }
+      ],
+      defaultLocale: 'en-gb',
+      // prefixes: {
+      //   'default': '/def',
+      //   'en-us': '/us',
+      //   'en-gb': '/en',
+      //   'fr-fr': '/fr'
+      // },
+      // hostnames: {
+      //   'default': 'example.com',
+      //   'en-us': 'example.com',
+      //   'en-gb': 'example.com',
+      //   'fr-fr': 'exemple.fr'
+      // }
     },
 
     articles: {},
