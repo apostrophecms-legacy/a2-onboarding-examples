@@ -32,9 +32,10 @@ const apos = require('apostrophe')({
       enableAltField: true
     },
 
-    articles: {},
+    'articles': {},
     'articles-pages': {},
     'articles-widgets': {},
-    categories: {}
+    'products': {},
+    'categories': {}
   }
 });
