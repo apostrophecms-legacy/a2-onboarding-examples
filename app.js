@@ -29,10 +29,16 @@ const apos = require('apostrophe')({
     // Add an alt field to images schema, by default the title is used but
     // we recommend enabling the alt field for clarity.
     'apostrophe-images': {
-      enableAltField: true
+      enableAltField: true,
     },
 
-    'articles': {},
+    'apostrophe-attachments': {
+      svgImages: true
+    },
+
+    'social-links-widgets': {},
+
+    articles: {},
     'articles-pages': {},
     'articles-widgets': {},
     'products': {},

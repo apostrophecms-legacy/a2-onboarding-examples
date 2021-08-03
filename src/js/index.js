@@ -1,1 +1,3 @@
-console.log(`Modern JavaScript allowed here in ${navigator.userAgent}`);
+apos.utils.widgetPlayers['social-links'] = function(el, data, options) {
+  // Our Widget Client JS Here
+};

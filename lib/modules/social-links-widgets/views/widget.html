@@ -1,0 +1,12 @@
+<ul class="social-links">
+  {% for socialLink in data.widget.socialLinks %}
+    {% set image = apos.images.first(socialLink.icon) %}
+    {% set imageUrl = apos.attachments.url(image) %}
+
+    <li>
+      <a href="{{ socialLink.link }}">
+        <img src="{{imageUrl}}" alt="">
+      </a>
+    </li>
+  {% endfor %}
+</ul>
