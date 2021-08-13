@@ -21,6 +21,8 @@ const apos = require('apostrophe')({
     },
     'apostrophe-attachments': {
       svgImages: true
-    }
+    },
+    articles: {},
+    'articles-pages': {}
   }
 });
