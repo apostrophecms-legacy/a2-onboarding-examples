@@ -7,6 +7,11 @@
 
 {% block main %}
   <div class="main-content">
-    {{ apos.singleton(data.page, 'body', 'articles', {}) }}
+    {{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-rich-text': {},
+        'apostrophe-images': {}
+      }
+     }) }}
   </div>
 {% endblock %}
