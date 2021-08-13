@@ -17,14 +17,6 @@
     {# For webpack live reload #}
     <link href="http://localhost:9002/wp/site.css" rel="stylesheet" />
   {% endif %}
-
-{{
-  apos.singleton(data.global, 'socialLinks', 'social-links', {
-    controls: {
-      position: 'bottom-right'
-    }
-  })
-}}
 {% endblock %}
 
 {% block beforeMain %}
