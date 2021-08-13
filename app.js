@@ -12,7 +12,6 @@ const apos = require('apostrophe')({
   // configuring user accounts.
 
   modules: {
-
     // Apostrophe module configuration
 
     // Add an alt field to images schema, by default the title is used but
